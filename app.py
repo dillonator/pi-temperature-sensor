@@ -1,12 +1,26 @@
-import # Adafruit_DHT as dht_sensor
+from DFRobot_DHT20 import *
 import time
 from flask import Flask, Response
 from prometheus_client import Counter, Gauge, start_http_server, generate_latest
 
+# https://github.com/DFRobot/DFRobot_DHT20
+IIC_MODE         = 0x01            # default use IIC1
+IIC_ADDRESS      = 0x38           # default i2c device address
+'''
+   # The first  parameter is to select iic0 or iic1
+   # The second parameter is the iic device address
+'''
+dht20 = DFRobot_DHT20(IIC_MODE ,IIC_ADDRESS)
+"""
+     @brief Initialize function
+"""
+dht20.begin()
+
 content_type = str('text/plain; version=0.0.4; charset=utf-8')
 
 def get_temperature_readings():
-    humidity, temperature = dht_sensor.read_retry(dht_sensor.DHT22, 4)
+    temperature = dht20.get_temperature()
+    humidity = dht20.get_humidity()
     humidity = format(humidity, ".2f")
     temperature = format(temperature, ".2f")
     if all(v is not None for v in [humidity, temperature]):
@@ -14,8 +28,8 @@ def get_temperature_readings():
         return response
     else:
         time.sleep(0.2)
-        humidity, temperature = dht_sensor.read_retry(dht_sensor.DHT22, 4)
-        humidity = format(humidity, ".2f")
+        temperature = dht20.get_temperature()
+        humidity = dht20.get_humidity()
         temperature = format(temperature, ".2f")
         response = {"temperature": temperature, "humidity": humidity}
         return response
