@@ -20,6 +20,8 @@ content_type = str('text/plain; version=0.0.4; charset=utf-8')
 
 def get_temperature_readings():
     temperature = dht20.get_temperature()
+    # Convert Celsius to Fahrenheit Formula: (°C * 1.8) + 32 = °F
+    temperature = (temperature * 1.8) + 32
     humidity = dht20.get_humidity()
     humidity = format(humidity, ".2f")
     temperature = format(temperature, ".2f")
