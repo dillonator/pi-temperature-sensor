@@ -1,4 +1,4 @@
-import DFRobot_DHT20
+from DFRobot_DHT20 import *
 import time
 from flask import Flask, Response
 from prometheus_client import Counter, Gauge, start_http_server, generate_latest
