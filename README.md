@@ -9,6 +9,8 @@ Notes:
   * Needed to modify sensor-flask.service file:
     * sudo nano /etc/systemd/system/sensor-flask.service
     * add
-     * WorkingDirectory=/home/pi/temperature-grafana
-     * User=pi
-  * Installed grafana for arm6 raspberry pi from here (2nd section from top) https://grafana.com/grafana/download/9.3.6?edition=enterprise&platform=arm
+     ```
+     WorkingDirectory=/home/pi/temperature-grafana
+     User=pi
+     ```
+  * Installed grafana for arm6 raspberry pi from here (2nd section from top) https://grafana.com/grafana/download/9.3.6?edition=enterprise&platform=ar
