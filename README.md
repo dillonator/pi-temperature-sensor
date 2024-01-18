@@ -14,3 +14,39 @@ Notes:
      User=pi
      ```
   * Installed grafana for arm6 raspberry pi from here (2nd section from top) https://grafana.com/grafana/download/9.3.6?edition=enterprise&platform=arm - grafana-enterprise-rpi_9.3.6_armhf.deb
+  * Need ARM6 prometheus for Raspberry Pi Zero - https://opensource.com/article/21/3/raspberry-pi-grafana-cloud
+    ```
+    wget https://github.com/prometheus/prometheus/releases/download/v2.24.0/prometheus-2.24.0.linux-armv6.tar.gz
+    tar -xvzf prometheus-2.24.0.linux-armv6.tar.gz
+    cd ./ prometheus-2.24.0.linux-armv6
+    ```
+  * create a service, we need to create a new file within the “/etc/systemd/system/” directory.
+
+This directory is where services are handled by default.
+
+To create this file, we will be using the nano text editor.
+
+Begin writing the new service file by running the following command on your Pi.
+
+sudo nano /etc/systemd/system/prometheus.service
+
+2. Within this file, enter the following text.
+
+The text defines how the service works and how it should run the Prometheus software.
+```
+[Unit]
+Description=Prometheus Server
+Documentation=https://prometheus.io/docs/introduction/overview/
+After=network-online.target
+
+[Service]
+User=pi
+Restart=on-failure
+
+ExecStart=/home/pi/prometheus/prometheus \
+  --config.file=/home/pi/prometheus/prometheus.yml \
+  --storage.tsdb.path=/home/pi/prometheus/data
+
+[Install]
+WantedBy=multi-user.target
+```
