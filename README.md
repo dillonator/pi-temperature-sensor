@@ -40,10 +40,10 @@ Notes:
   User=pi
   Restart=on-failure
   
-  ExecStart=/home/pi/prometheus/prometheus \
+  ExecStart=/home/pi/prometheus-2.24.0.linux-armv6/prometheus \
     --config.file=/home/pi/prometheus/prometheus.yml \
     --storage.tsdb.path=/home/pi/prometheus/data
-  
+
   [Install]
   WantedBy=multi-user.target
   ```
