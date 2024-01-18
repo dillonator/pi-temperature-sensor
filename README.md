@@ -22,31 +22,28 @@ Notes:
     ```
   * create a service, we need to create a new file within the “/etc/systemd/system/” directory.
 
-This directory is where services are handled by default.
-
-To create this file, we will be using the nano text editor.
-
-Begin writing the new service file by running the following command on your Pi.
-
-sudo nano /etc/systemd/system/prometheus.service
-
-2. Within this file, enter the following text.
-
-The text defines how the service works and how it should run the Prometheus software.
-```
-[Unit]
-Description=Prometheus Server
-Documentation=https://prometheus.io/docs/introduction/overview/
-After=network-online.target
-
-[Service]
-User=pi
-Restart=on-failure
-
-ExecStart=/home/pi/prometheus/prometheus \
-  --config.file=/home/pi/prometheus/prometheus.yml \
-  --storage.tsdb.path=/home/pi/prometheus/data
-
-[Install]
-WantedBy=multi-user.target
-```
+  This directory is where services are handled by default.
+  To create this file, we will be using the nano text editor.
+  Begin writing the new service file by running the following command on your Pi.
+  ```
+  sudo nano /etc/systemd/system/prometheus.service
+  ```
+  2. Within this file, enter the following text.
+  The text defines how the service works and how it should run the Prometheus software.
+  ```
+  [Unit]
+  Description=Prometheus Server
+  Documentation=https://prometheus.io/docs/introduction/overview/
+  After=network-online.target
+  
+  [Service]
+  User=pi
+  Restart=on-failure
+  
+  ExecStart=/home/pi/prometheus/prometheus \
+    --config.file=/home/pi/prometheus/prometheus.yml \
+    --storage.tsdb.path=/home/pi/prometheus/data
+  
+  [Install]
+  WantedBy=multi-user.target
+  ```
