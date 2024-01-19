@@ -57,3 +57,6 @@ Notes:
   [Install]
   WantedBy=multi-user.target
   ```
+
+Example:
+![Example Showing Line Graph](https://github.com/dillonator/pi-temperature-sensor/blob/[branch]/image.jpg?raw=true)
