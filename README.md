@@ -7,8 +7,10 @@ Adapted DHT20 Sensor data gathering from here https://github.com/DFRobot/DFRobot
 
 Notes:
   * Needed to modify sensor-flask.service file:
-    * sudo nano /etc/systemd/system/sensor-flask.service
-     ```
+    ```
+    sudo nano /etc/systemd/system/sensor-flask.service
+    ```
+    ```
      [Unit]
      Description=A service that will keep temperature-grafana app running in the background
      After=multi-user.target
