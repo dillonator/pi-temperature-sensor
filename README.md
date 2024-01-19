@@ -1,5 +1,5 @@
 # pi-temperature-sensor
-Raspberry Pi Zero WH w/DH22 Temperature Sensor Graphing (maybe alerting too)
+Raspberry Pi Zero WH w/DH20 Temperature Sensor Graphing (maybe alerting too)
 
 Grafana code started from here https://grafana.com/blog/2023/10/23/monitor-temperature-and-humidity-with-grafana-and-raspberry-pi/
 
