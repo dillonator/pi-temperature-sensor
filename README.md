@@ -8,10 +8,18 @@ Adapted DHT20 Sensor data gathering from here https://github.com/DFRobot/DFRobot
 Notes:
   * Needed to modify sensor-flask.service file:
     * sudo nano /etc/systemd/system/sensor-flask.service
-    * add
      ```
+     [Unit]
+     Description=A service that will keep temperature-grafana app running in the background
+     After=multi-user.target
+     [Service]
+     Type=simple
+     Restart=always
      WorkingDirectory=/home/pi/temperature-grafana
      User=pi
+     ExecStart=/usr/bin/python3 /home/pi/temperature-grafana/app.py
+     [Install]
+     WantedBy=multi-user.target
      ```
   * Installed grafana for arm6 raspberry pi from here (2nd section from top) https://grafana.com/grafana/download/9.3.6?edition=enterprise&platform=arm - grafana-enterprise-rpi_9.3.6_armhf.deb
   * Need ARM6 prometheus for Raspberry Pi Zero - https://opensource.com/article/21/3/raspberry-pi-grafana-cloud
