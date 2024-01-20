@@ -59,4 +59,4 @@ Notes:
   ```
 
 Example:
-![Example Showing Line Graph](https://github.com/dillonator/pi-temperature-sensor/main/blob/GrafanaTempSensorGraph.png?raw=true)
+![Example Showing Line Graph](https://github.com/dillonator/pi-temperature-sensor/blob/main/GrafanaTempSensorGraph.png?raw=true)
