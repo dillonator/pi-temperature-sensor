@@ -1,5 +1,5 @@
 # pi-temperature-sensor
-Raspberry Pi Zero WH w/DH20 Temperature Sensor Graphing (maybe alerting too)
+## Raspberry Pi Zero WH w/DH20 Temperature Sensor Graphing (maybe alerting too)
 
 Grafana code started from here https://grafana.com/blog/2023/10/23/monitor-temperature-and-humidity-with-grafana-and-raspberry-pi/
 
@@ -60,3 +60,21 @@ Notes:
 
 Example:
 ![Example Showing Line Graph](https://github.com/dillonator/pi-temperature-sensor/blob/main/GrafanaTempSensorGraph.png?raw=true)
+
+## Alerting
+Setup email service with free SendGrid account. Generate API key for sending email.
+
+Edit grafana.ini file. My location was below; yours may vary based on how it was installed.
+```
+sudo nano /etc/grafana/grafana.ini
+```
+```
+[smtp]
+enabled = true
+host = smtp.sendgrid.net:587
+user = apikey
+password = YOUR_SENDGRID_API_KEY
+skip_verify = false
+from_address = admin@grafana.localhost
+from_name = Grafana
+```
