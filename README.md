@@ -64,7 +64,7 @@ Example:
 ## Alerting
 Setup email service with free SendGrid account. Generate API key for sending email.
 
-Edit grafana.ini file. My location was below; yours may vary based on how it was installed.
+Edit the grafana.ini file. My location was below; yours may vary based on how it was installed and platform.
 ```
 sudo nano /etc/grafana/grafana.ini
 ```
